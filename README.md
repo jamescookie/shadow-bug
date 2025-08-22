@@ -1,21 +1,15 @@
-## Micronaut 4.9.2 Documentation
+## Shadow bug
 
-- [User Guide](https://docs.micronaut.io/4.9.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.9.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.9.2/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+This demo project was created using https://micronaut.io/launch 
 
-- [Shadow Gradle Plugin](https://gradleup.com/shadow/)
-- [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
-- [GraalVM Gradle Plugin documentation](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html)
-## Feature micronaut-aot documentation
+`./gradlew clean build` works fine with `id("com.gradleup.shadow") version "8.3.7"`, but fails when using `id("com.gradleup.shadow") version "9.0.2"` with:
 
-- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
+```
+> Configure project :
+The legacy Shadow plugin (id 'com.github.johnrengelman.shadow') is deprecated. Please use the Gradle Shadow plugin instead (id = 'com.gradleup.shadow')
 
+FAILURE: Build failed with an exception.
 
-## Feature serialization-jackson documentation
-
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
-
-
+* What went wrong:
+'com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar.mergeServiceFiles()'
+```
